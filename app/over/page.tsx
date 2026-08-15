@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container, Section, Eyebrow, Button } from "@/components/ui";
 import { Reveal } from "@/components/reveal-item";
 import { FounderPhoto } from "@/components/founder-photo";
-import { site, BUILD_DAYS } from "@/lib/site";
+import { site, BUILD_DAYS, SHOW_TODO_NOTICES } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Over",
@@ -43,7 +43,9 @@ export default function Over() {
         </Container>
       </section>
 
-      {/* Waar ik vandaan kom. Deze alinea moet Rafael zelf schrijven. */}
+      {/* Waar ik vandaan kom. Verschijnt pas als Rafael deze alinea geschreven
+          heeft; zie SHOW_TODO_NOTICES in lib/site.ts. */}
+      {SHOW_TODO_NOTICES ? (
       <Section tone="raise" className="pt-8 sm:pt-10 lg:pt-12">
         <Container>
           <Reveal className="max-w-3xl">
@@ -68,6 +70,7 @@ export default function Over() {
           </Reveal>
         </Container>
       </Section>
+      ) : null}
 
       <Section tone="cream">
         <Container>

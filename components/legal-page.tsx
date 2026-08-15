@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Container, Eyebrow } from "@/components/ui";
+import { SHOW_TODO_NOTICES } from "@/lib/site";
 
 /**
  * Opmaak voor de juridische pagina's. Bewust smal gezet en rustig —
@@ -26,7 +27,8 @@ export function LegalPage({
             Laatst bijgewerkt: {updated}
           </p>
 
-          {/* Deze melding haal je weg zodra een jurist ernaar gekeken heeft. */}
+          {/* Verschijnt alleen met SHOW_TODO_NOTICES aan. Zie lib/site.ts. */}
+          {SHOW_TODO_NOTICES ? (
           <div className="mt-10 rounded-[3px] border border-dashed border-line-strong p-6">
             <p className="font-mono text-[0.6875rem] tracking-[0.16em] text-clay-bright uppercase">
               Nog te controleren
@@ -38,6 +40,7 @@ export function LegalPage({
               <span className="font-mono text-cream">lib/site.ts</span> in.
             </p>
           </div>
+          ) : null}
 
           <div className="mt-14 space-y-12">{children}</div>
         </div>

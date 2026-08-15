@@ -38,6 +38,18 @@ export const BUILD_DAYS = 14;
  */
 export const SHOW_PROJECT_PRICES = true;
 
+/**
+ * Toont de site de "nog te doen"-blokken?
+ *
+ * Staat uit, zodat de site af oogt voor bezoekers. Het gaat om twee dingen:
+ * de melding dat de juridische pagina's nog nagekeken moeten worden, en het
+ * gestippelde kader op /over waar Rafaels achtergrondverhaal hoort.
+ *
+ * Zet 'm tijdelijk op `true` als je wilt zien wat er nog open staat.
+ * De herinneringen staan ook in LEESWIJZER.md.
+ */
+export const SHOW_TODO_NOTICES = false;
+
 export const nav = [
   { href: "/werkwijze", label: "Werkwijze" },
   { href: "/werk", label: "Werk" },

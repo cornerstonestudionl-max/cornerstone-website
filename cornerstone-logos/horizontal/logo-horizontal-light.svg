@@ -1,0 +1,10 @@
+<!-- Cornerstone Studio — horizontale lockup, licht (voor donkere achtergronden) -->
+<svg width="540" height="200" viewBox="0 0 270 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Transparante achtergrond: plaats dit bestand zelf op een donkere ondergrond (bv. #1E1B18) -->
+  <g transform="translate(8,18) scale(0.64)">
+    <path d="M 18 18 L 38 18 L 38 58 L 78 58 L 78 78 L 18 78 Z" fill="#F4F0EA"/>
+    <rect x="47" y="27" width="27" height="27" rx="3" fill="#C1633D"/>
+  </g>
+  <text x="100" y="52" font-family="Fraunces, Georgia, 'Times New Roman', serif" font-weight="600" font-size="28" fill="#FFFFFF">Cornerstone</text>
+  <text x="101" y="70" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="600" font-size="11" letter-spacing="3" fill="#A99C8B">STUDIO</text>
+</svg>

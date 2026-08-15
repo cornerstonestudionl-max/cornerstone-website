@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Cornerstone Studio — ontwerpsysteem
+   Kleuren komen uit het logopakket (zie cornerstone-logos/LEESMIJ.txt).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Licht en donker
+
+   De site kent twee soorten vlakken: het dráágvlak (het grootste deel van de
+   pagina) en het tegenvlak (de secties die het ritme breken). In het donkere
+   thema is het draagvlak charcoal en het tegenvlak crème; in het lichte thema
+   precies andersom.
+
+   Daarom staan hieronder geen vaste kleuren maar rollen. `--surface` is het
+   draagvlak, `--on-surface` de tekst daarop. Ze wisselen samen om, dus een
+   sectie die "tegenvlak met tekst erop" is, klopt in beide thema's zonder dat
+   er ergens een uitzondering nodig is.
+   -------------------------------------------------------------------------- */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface: #1e1b18; /* Charcoal */
+  --surface-raise: #262220;
+  --surface-deep: #151311;
+
+  --on-surface: #f4f0ea; /* Warm Cream — 15.10:1 */
+  --on-surface-dim: rgba(244, 240, 234, 0.72); /* 8.31:1 */
+  --on-surface-muted: #a99c8b; /* Stone — 6.38:1 */
+
+  --line-on-surface: rgba(244, 240, 234, 0.14);
+  --line-on-surface-strong: rgba(244, 240, 234, 0.26);
+  --line-on-invert: rgba(30, 27, 24, 0.16);
+
+  --invert-raise: #ede8e0; /* tegenvlak, licht opgetild (hover) */
+
+  --clay-text: #d46d43; /* clay-tekst op charcoal — 4.95:1 */
+  --glow: 0.07;
+  --grain: 0.035;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --surface: #f4f0ea; /* Warm Cream */
+  --surface-raise: #eae5dc;
+  --surface-deep: #e3ddd2;
+
+  --on-surface: #1e1b18; /* Charcoal — 15.10:1 */
+  --on-surface-dim: rgba(30, 27, 24, 0.72); /* 6.33:1 */
+  --on-surface-muted: #665c50; /* Stone haalt op crème maar 2.37:1. Dit warme
+                                  grijs haalt 4.84:1 of hoger op alle drie de
+                                  vlakken, ook het diepste. */
+
+  --line-on-surface: rgba(30, 27, 24, 0.16);
+  --line-on-surface-strong: rgba(30, 27, 24, 0.3);
+  --line-on-invert: rgba(244, 240, 234, 0.16);
+
+  --invert-raise: #2b2724; /* tegenvlak, licht opgetild (hover) */
+
+  --clay-text: #a65534; /* clay-tekst op crème — 4.66:1 */
+  --glow: 0.1;
+  --grain: 0.022;
+}
+
+@theme {
+  /* Rollen, geen kleuren. `ink` is het draagvlak, `cream` de tekst erop —
+     in het lichte thema staat die verhouding op zijn kop, en dat is precies
+     de bedoeling. */
+  --color-ink: var(--surface);
+  --color-ink-raise: var(--surface-raise);
+  --color-ink-deep: var(--surface-deep);
+  --color-cream: var(--on-surface);
+  --color-cream-dim: var(--on-surface-dim);
+  --color-stone: var(--on-surface-muted);
+
+  --color-line: var(--line-on-surface);
+  --color-line-strong: var(--line-on-surface-strong);
+  --color-line-dark: var(--line-on-invert);
+  --color-cream-raise: var(--invert-raise);
+
+  /* Clay in vier rollen.
+     Het merk-clay haalt 4.18:1 op charcoal — genoeg voor vlakken (norm 3:1),
+     te weinig voor tekst (norm 4.5:1). Vandaar de varianten; alle vier
+     blijven onmiskenbaar dezelfde terracotta. */
+  --color-clay: #c1633d; /* alleen vlakken: dag 14, blokjes, lijnen */
+  --color-clay-deep: #a65534; /* knopvlak met crème tekst — 4.66:1 */
+  --color-clay-press: #974d30; /* knop bij hover — 5.41:1 */
+  --color-clay-bright: var(--clay-text); /* clay-tekst, wisselt mee */
+
+  /* Wisselt NIET mee. Clay-knoppen en de projectvlakken zijn in beide
+     thema's donker, dus daar hoort altijd crème tekst op. */
+  --color-on-accent: #f4f0ea;
+  --color-scrim: rgba(30, 27, 24, 0.72);
+
+  /* Letters */
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Typeschaal — vloeiend, geen breekpunten nodig */
+  --text-display: clamp(2.75rem, 1.6rem + 5.2vw, 6.5rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.03em;
+
+  --text-h1: clamp(2.25rem, 1.4rem + 3.6vw, 4.25rem);
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.025em;
+
+  --text-h2: clamp(1.75rem, 1.2rem + 2.2vw, 3rem);
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.02em;
+
+  --text-h3: clamp(1.25rem, 1.05rem + 0.8vw, 1.75rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.01em;
+
+  --text-lead: clamp(1.0625rem, 1rem + 0.45vw, 1.375rem);
+  --text-lead--line-height: 1.55;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.18em;
+
+  /* Timing */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   Basis
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Bij het omzetten van het thema laten we alleen de vlakken en lijnen
+     overvloeien, niet de tekst — tekst die van kleur verloopt leest als een
+     haperende pagina. De klasse staat er alleen tijdens het omschakelen. */
+  html[data-theme-switching] * {
+    transition:
+      background-color 0.32s var(--ease-out-quint),
+      border-color 0.32s var(--ease-out-quint) !important;
+  }
+
+  /* Een heel fijne korrel over de hele pagina. Haalt de vlakheid uit de grote
+     kleurvlakken en geeft het scherm iets tastbaars, zonder dat je het bewust
+     opmerkt. Kost niets: het is één SVG-ruis van een paar honderd bytes. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: var(--grain);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Fraunces heeft een optische-grootte-as; groot gezet wil je 'm smaller
+     en met wat 'wonk' voor karakter. */
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 96;
+  }
+
+  ::selection {
+    background-color: var(--color-clay-deep);
+    color: var(--color-on-accent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay-bright);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ==========================================================================
+   Het leggen van de blokken — de enige geregisseerde beweging op de site
+   ========================================================================== */
+
+@keyframes lay-block {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scaleY(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer utilities {
+  .rise-in {
+    animation: rise-in 0.85s var(--ease-out-quint) both;
+  }
+}
+
+/* ==========================================================================
+   Onthullen bij scrollen — geen bibliotheek, alleen een observer
+   ========================================================================== */
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s var(--ease-out-quint),
+      transform 0.7s var(--ease-out-quint);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal[data-shown="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Hoekmarkering, afgeleid van het L-vormige merkteken */
+  .corner-mark {
+    position: relative;
+  }
+
+  .corner-mark::before,
+  .corner-mark::after {
+    content: "";
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-color: var(--color-line-strong);
+    border-style: solid;
+    transition: border-color 0.4s var(--ease-out-quint);
+  }
+
+  .corner-mark::before {
+    top: 0;
+    left: 0;
+    border-width: 1px 0 0 1px;
+  }
+
+  .corner-mark::after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 1px 1px 0;
+  }
+
+  .corner-mark:hover::before,
+  .corner-mark:hover::after {
+    border-color: var(--color-clay);
+  }
+
+  /* Op een crèmekleurige sectie moeten de hoeken donker zijn, anders
+     verdwijnen ze in de achtergrond. */
+  .on-cream .corner-mark::before,
+  .on-cream .corner-mark::after {
+    border-color: rgba(30, 27, 24, 0.28);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* ==========================================================================
+   Toegankelijkheid — wie beweging uit heeft staan, krijgt geen beweging
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

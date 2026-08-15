@@ -1,0 +1,5 @@
+<!-- Cornerstone Studio — icoon, monochroom wit (voor donkere/gekleurde achtergronden, 1 kleur) -->
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 18 18 L 38 18 L 38 58 L 78 58 L 78 78 L 18 78 Z" fill="#FFFFFF"/>
+  <rect x="47" y="27" width="27" height="27" rx="3" fill="#FFFFFF"/>
+</svg>

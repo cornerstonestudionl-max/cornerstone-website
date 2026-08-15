@@ -1,0 +1,39 @@
+CORNERSTONE STUDIO — LOGOPAKKET
+================================
+
+icon/
+  logo-icon-color.svg / .png     → los icoon, kleur. Gebruik als favicon, social media
+                                    profielfoto, app-icoon. Werkt op lichte achtergronden.
+  logo-icon-light.svg / .png     → los icoon, lichte versie. Voor donkere achtergronden.
+
+horizontal/
+  logo-horizontal-color.svg/.png → icoon + naam naast elkaar. Voor website-header,
+                                    facturen, documenten met lichte achtergrond.
+  logo-horizontal-light.svg/.png → zelfde, maar in lichte kleuren voor donkere
+                                    achtergronden (bv. een donkere website-footer).
+
+stacked/
+  logo-stacked-color.svg/.png    → icoon boven de naam. Handig voor vierkante vlakken,
+                                    zoals een visitekaartje of Instagram-post.
+  logo-stacked-light.svg/.png    → zelfde, lichte versie voor donkere achtergronden.
+
+mono/
+  logo-icon-mono-black.svg/.png  → icoon in één kleur zwart. Voor stempels, gravures,
+                                    fax, of drukwerk waar maar 1 kleur beschikbaar is.
+  logo-icon-mono-white.svg/.png  → zelfde, in wit. Voor donkere/gekleurde ondergrond.
+
+Bestandstypen
+-------------
+.svg  → vectorbestand, oneindig schaalbaar zonder kwaliteitsverlies. Gebruik dit
+         voor drukwerk, grote formaten, of om te bewerken in Illustrator/Figma/Canva.
+.png  → vaste resolutie met transparante achtergrond. Gebruik dit voor Word, Canva,
+         social media uploads, of overal waar SVG niet wordt geaccepteerd.
+
+Kleuren
+-------
+Charcoal (donker):  #1E1B18
+Clay (accent):      #C1633D
+Warm Cream:         #F4F0EA
+
+Zie ook de volledige huisstijlgids (brand-guide.html) voor kleurenpalet, typografie
+en taglines.

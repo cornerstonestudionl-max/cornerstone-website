@@ -20,7 +20,6 @@ const instellingen: SchemaTypeDefinition = {
   title: "Bedrijfsgegevens",
   type: "document",
   // Er is er maar één van, dus geen nieuwe aanmaken.
-  __experimental_actions: ["update", "publish"],
   fields: [
     { name: "name", title: "Bedrijfsnaam", type: "string" },
     { name: "founder", title: "Voornaam", type: "string" },
@@ -157,7 +156,7 @@ const project: SchemaTypeDefinition = {
       type: "array",
       of: [{ type: "string" }],
       description: "Twee hexcodes, bijvoorbeeld #1F3A34 en #C1633D.",
-      validation: (regel: { length: (n: number) => unknown }) => regel.length(2),
+      validation: (regel: any) => regel.length(2),
     },
     { name: "volgorde", title: "Volgorde", type: "number" },
   ],
